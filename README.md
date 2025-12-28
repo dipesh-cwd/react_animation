@@ -248,3 +248,290 @@ src/
   <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/demo1.gif" width="600" alt="Demo Animation" />
 </p>
 ```
+
+
+
+
+# 🚀 React Motion Library Documentation
+
+<p align="center">
+  <img width="800" src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/cover-light.png" alt="Framer Motion Guide" />
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/cover-dark.png">
+    <img width="800" src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/cover-light.png" alt="Framer Motion Guide">
+  </picture>
+</p>
+
+[![npm version](https://img.shields.io/npm/v/framer-motion?logo=npm\&style=flat-square)](https://www.npmjs.com/package/framer-motion)
+[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/YOUR_REPO?logo=github\&style=flat-square)](https://github.com/YOUR_USERNAME/YOUR_REPO/stargazers)
+[![License](https://img.shields.io/github/license/YOUR_USERNAME/YOUR_REPO?style=flat-square)](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/LICENSE)
+
+---
+
+## 📦 Installation
+
+```bash
+npm install framer-motion
+```
+
+---
+
+## ▶️ Usage
+
+```bash
+npm run dev
+```
+
+---
+
+## 📘 What is Framer Motion?
+
+Framer Motion is a production-ready animation library for React that provides:
+
+* Smooth & performant animations
+* Props-based declarative API
+* Gestures: hover, tap, drag
+* Layout animations
+* Exit animations
+* Reusable animation variants
+
+---
+
+## ⭐ Basic Example
+
+```jsx
+import { motion } from "framer-motion";
+
+export default function Box() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="box"
+    />
+  );
+}
+```
+
+---
+
+## 🧩 Core Motion Props
+
+### 🔹 `initial`
+
+```jsx
+initial={{ opacity: 0, x: -100 }}
+```
+
+### 🔹 `animate`
+
+```jsx
+animate={{ opacity: 1, x: 0 }}
+```
+
+### 🔹 `exit`
+
+```jsx
+exit={{ opacity: 0, y: 50 }}
+```
+
+### 🔹 `transition`
+
+```jsx
+transition={{
+  duration: 0.5,
+  delay: 0.2,
+  ease: "easeInOut",
+  type: "spring",
+  stiffness: 200,
+  damping: 20,
+  repeat: 0,
+  repeatType: "loop",
+  repeatDelay: 0,
+}}
+```
+
+### 🔹 `variants`
+
+```jsx
+const boxVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
+<motion.div
+  variants={boxVariants}
+  initial="hidden"
+  animate="visible"
+/>
+```
+
+### 🔹 `whileHover` / `whileTap` / `whileDrag`
+
+```jsx
+<motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} drag />
+```
+
+---
+
+## 🎨 Motion Style Properties
+
+| Property          | Description                |
+| ----------------- | -------------------------- |
+| `opacity`         | Fade in/out                |
+| `x`               | Horizontal movement        |
+| `y`               | Vertical movement          |
+| `scale`           | Resize                     |
+| `rotate`          | Rotate the element         |
+| `borderRadius`    | Rounded corners            |
+| `backgroundColor` | Color animation            |
+| `filter`          | Blur, brightness, contrast |
+| `width`           | Width animation            |
+| `height`          | Height animation           |
+| `color`           | Text color animation       |
+
+---
+
+## ⚙️ Transition Options
+
+| Option            | Description                                          |          |           |
+| ----------------- | ---------------------------------------------------- | -------- | --------- |
+| `type`            | 'tween'                                              | 'spring' | 'inertia' |
+| `duration`        | Time in seconds                                      |          |           |
+| `ease`            | 'linear', 'easeIn', 'easeOut', 'easeInOut', or array |          |           |
+| `delay`           | Delay before animation starts                        |          |           |
+| `repeat`          | Number of repeats (-1 for infinite)                  |          |           |
+| `repeatType`      | 'loop', 'reverse', 'mirror'                          |          |           |
+| `repeatDelay`     | Delay between repeats                                |          |           |
+| `stiffness`       | Spring stiffness (only spring)                       |          |           |
+| `damping`         | Spring damping (only spring)                         |          |           |
+| `mass`            | Spring mass                                          |          |           |
+| `velocity`        | Initial velocity                                     |          |           |
+| `when`            | 'beforeChildren', 'afterChildren', 'sync'            |          |           |
+| `delayChildren`   | Delay for children animations                        |          |           |
+| `staggerChildren` | Stagger timing for children                          |          |           |
+
+---
+
+## 🎭 Gestures
+
+| Prop              | Description                   |
+| ----------------- | ----------------------------- |
+| `whileHover`      | Animate on hover              |
+| `whileTap`        | Animate while clicking        |
+| `whileDrag`       | Animate while dragging        |
+| `drag`            | Boolean or 'x'/'y' axis       |
+| `dragConstraints` | Limit drag area               |
+| `dragElastic`     | Drag resistance (0-1)         |
+| `dragMomentum`    | Enable momentum after release |
+| `onDragStart`     | Callback function             |
+| `onDrag`          | Callback function             |
+| `onDragEnd`       | Callback function             |
+
+---
+
+## 🎬 AnimatePresence (Exit Animations)
+
+```jsx
+import { AnimatePresence, motion } from "framer-motion";
+
+<AnimatePresence>
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    />
+  )}
+</AnimatePresence>
+```
+
+---
+
+## 🏗️ Layout Animations
+
+```jsx
+<motion.div layout layoutId="unique-id" />
+```
+
+Supports smooth layout transitions and shared element animations.
+
+---
+
+## 📝 Full Props Table
+
+| Prop                  | Description                    |
+| --------------------- | ------------------------------ |
+| `initial`             | Start state                    |
+| `animate`             | End state                      |
+| `exit`                | Unmount state                  |
+| `transition`          | Timing & motion control        |
+| `variants`            | Animation groups               |
+| `whileHover`          | Hover animation                |
+| `whileTap`            | Tap animation                  |
+| `whileDrag`           | Drag animation                 |
+| `drag`                | Enable dragging                |
+| `dragConstraints`     | Limit drag area                |
+| `dragElastic`         | Drag resistance                |
+| `dragMomentum`        | Momentum after drag            |
+| `layout`              | Auto layout animation          |
+| `layoutId`            | Shared layout animation        |
+| `custom`              | Custom value for variants      |
+| `onAnimationStart`    | Callback when animation starts |
+| `onAnimationComplete` | Callback when animation ends   |
+| `style`               | Inline or class styling        |
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── assets/
+│   ├── cover-light.png
+│   ├── cover-dark.png
+│   └── demo1.gif
+├── components/
+│   ├── AnimatedBox.jsx
+│   ├── MotionCard.jsx
+│   ├── PageTransition.jsx
+│   └── MotionList.jsx
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🎁 Example: Button Animation
+
+```jsx
+<motion.button
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.9 }}
+  transition={{ type: "spring", stiffness: 200 }}
+>
+  Click Me
+</motion.button>
+```
+
+---
+
+## 🧠 Learning Objectives
+
+* Master core and advanced motion props
+* Build reusable animation variants
+* Implement gestures and layout transitions
+* Create exit animations with AnimatePresence
+* Enhance UI with smooth motion effects
+
+---
+
+## 🎬 Demo GIFs
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/demo1.gif" width="600" alt="Demo Animation" />
+</p>
