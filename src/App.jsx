@@ -1,5 +1,5 @@
 import React from "react";
-import { Sample, Simple, Variants } from "./components/index.js";
+import { Drag, Sample, Simple, Variants } from "./components/index.js";
 import { Buttons } from "./pages/index.js";
 const App = () => {
   return (
@@ -7,7 +7,8 @@ const App = () => {
       {/* <Simple /> */}
       {/* <Sample /> */}
       {/* <Buttons /> */}
-      <Variants />
+      {/* <Variants /> */}
+      <Drag />
     </div>
   );
 };
